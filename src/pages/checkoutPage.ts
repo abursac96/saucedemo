@@ -17,6 +17,8 @@ export class CheckoutPage {
         inventoryItemName: (name: string) => this.page.getByTestId('inventory-item-name').filter({ hasText: name }),
         inventoryItemDescription: (description: string) => this.page.getByTestId('inventory-item-desc').filter({ hasText: description }),
         inventoryItemPrice: (price: string) => this.page.getByTestId('inventory-item-price').filter({ hasText: price }),
+        completeHeader: () => this.page.getByTestId('complete-header'),
+        completeText: () => this.page.getByTestId('complete-text'),
     };
     // Methods
     async verifyUserIsOnCheckoutPage() {
@@ -73,4 +75,16 @@ export class CheckoutPage {
 
         console.log(`Item Total Price: $${subtotal}, Tax Value: $${tax}`);
     }
+
+    async verifyOrderFinished() {
+        await expect.soft(this.selectors.completeHeader()).toBeVisible();
+        await expect.soft(this.selectors.completeHeader()).toHaveText('Thank you for your order!');
+        await expect.soft(this.selectors.completeText()).toBeVisible();
+        await expect.soft(this.selectors.completeText()).toHaveText('Your order has been dispatched, and will arrive just as fast as the pony can get there!');
+    }   
+
+    async clickBackHomeButton() {
+        await this.page.getByTestId('back-to-products').click();
+    }
+
 }
