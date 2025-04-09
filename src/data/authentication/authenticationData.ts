@@ -1,23 +1,16 @@
+export const STANDARD_USER_USERNAME = process.env.STANDARD_USER_USERNAME || '';
+export const LOCKED_OUT_USER_USERNAME = process.env.LOCKED_OUT_USER_USERNAME || '';
+export const PROBLEM_USER_USERNAME = process.env.PROBLEM_USER_USERNAME || '';
+export const PERFORMANCE_GLITCH_USER_USERNAME = process.env.PERFORMANCE_GLITCH_USER_USERNAME || '';
+export const ERROR_USER_USERNAME = process.env.ERROR_USER_USERNAME || '';
+export const VISUAL_USER_USERNAME = process.env.VISUAL_USER_USERNAME || '';
 
-export const STANDARD_USER_USERNAME = process.env.STANDARD_USER_USERNAME || "standard_user";
-export const LOCKED_OUT_USER_USERNAME = process.env.LOCKED_OUT_USER_USERNAME || "locked_out_user";
-export const PROBLEM_USER_USERNAME = process.env.PROBLEM_USER_USERNAME || "problem_user";
-export const PERFORMANCE_GLITCH_USER_USERNAME = process.env.PERFORMANCE_GLITCH_USER_USERNAME || "performance_glitch_user";
-export const ERROR_USER_USERNAME = process.env.ERROR_USER_USERNAME || "error_user";
-export const VISUAL_USER_USERNAME = process.env.VISUAL_USER_USERNAME || "visual_user";
-
-/*
-    Normally this file would not have exposed password and it would simply be left to a proccess.env variable
-    but for the sake of simplicity the password is hardcoded here, as it is a public test site with an exposed
-    password
-*/
-
-export const STANDARD_USER_PASSWORD = process.env.STANDARD_USER_PASSWORD || "secret_sauce";
-export const LOCKED_OUT_USER_PASSWORD = process.env.LOCKED_OUT_USER_PASSWORD || "secret_sauce";
-export const PROBLEM_USER_PASSWORD = process.env.PROBLEM_USER_PASSWORD || "secret_sauce";
-export const PERFORMANCE_GLITCH_USER_PASSWORD = process.env.PERFORMANCE_GLITCH_USER_PASSWORD || "secret_sauce";
-export const ERROR_USER_PASSWORD = process.env.ERROR_USER_PASSWORD || "secret_sauce";
-export const VISUAL_USER_PASSWORD = process.env.VISUAL_USER_PASSWORD || "secret_sauce";
+export const STANDARD_USER_PASSWORD = process.env.STANDARD_USER_PASSWORD || '';
+export const LOCKED_OUT_USER_PASSWORD = process.env.LOCKED_OUT_USER_PASSWORD || '';
+export const PROBLEM_USER_PASSWORD = process.env.PROBLEM_USER_PASSWORD || '';
+export const PERFORMANCE_GLITCH_USER_PASSWORD = process.env.PERFORMANCE_GLITCH_USER_PASSWORD || '';
+export const ERROR_USER_PASSWORD = process.env.ERROR_USER_PASSWORD || '';
+export const VISUAL_USER_PASSWORD = process.env.VISUAL_USER_PASSWORD || '';
 
 /*
     The tags are added here so they can be used in the authentication test cases.
