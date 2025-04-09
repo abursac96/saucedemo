@@ -18,6 +18,10 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    - name: Install Allure CLI
+      run: |
+        npm install -g allure-commandline --save-dev
+        allure --version
     - name: Run Playwright tests with Allure Report
       env:
         STANDARD_USER_USERNAME: ${{ secrets.STANDARD_USER_USERNAME }}
@@ -33,10 +37,10 @@ jobs:
         VISUAL_USER_USERNAME: ${{ secrets.VISUAL_USER_USERNAME }}
         VISUAL_USER_PASSWORD: ${{ secrets.VISUAL_USER_PASSWORD }}
       run: |
-        npx playwright test --reporter=line,allure-playwright
+        npx playwright test
     - name: Generate Allure Report
       run: |
-        npx allure-playwright generate --results-dir=allure-results --report-dir=allure-report
+        allure generate ./allure-result --clean
     - name: Upload Allure Report
       uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
