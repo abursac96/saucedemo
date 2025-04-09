@@ -17,7 +17,8 @@
   "homepage": "https://github.com/abursac96/saucedemo#readme",
   "devDependencies": {
     "@playwright/test": "^1.51.1",
-    "@types/node": "^22.14.0"
+    "@types/node": "^22.14.0",
+    "allure-playwright": "^3.2.1"
   },
   "dependencies": {
     "dotenv": "^16.4.7"

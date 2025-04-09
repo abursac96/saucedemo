@@ -5,6 +5,7 @@ import { ProductsPage } from '../productsPage';
 import { CartPage } from '../cartPage';
 import { CheckoutPage } from '../checkoutPage';
 import { Overlay } from '../overlay';
+import { ProductDetailsPage } from '../productDetailsPage';
 
 export class PageManager {
     private _loginPage: LoginPage;
@@ -13,6 +14,7 @@ export class PageManager {
     private _productsPage: ProductsPage;
     private _cartPage: CartPage;
     private _checkoutPage: CheckoutPage;
+    private _prodctDetailsPage: ProductDetailsPage
 
     constructor(page: Page){
         this._loginPage = new LoginPage(page);
@@ -21,6 +23,7 @@ export class PageManager {
         this._cartPage = new CartPage(page);
         this._checkoutPage = new CheckoutPage(page);
         this._overlay = new Overlay(page);
+        this._prodctDetailsPage = new ProductDetailsPage(page);
     }
 
     //getters
@@ -46,5 +49,9 @@ export class PageManager {
 
     get overlay(){
         return this._overlay;
+    }
+
+    get productDetailsPage(){
+        return this._prodctDetailsPage;
     }
 }

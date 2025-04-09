@@ -1,3 +1,4 @@
+import { randomInt } from 'crypto';
 import { test } from '../../fixture/baseFixture';
 
 test.beforeEach(async ({ pages, authData}) => {
@@ -47,4 +48,18 @@ test.describe('Standard user is able to interact with product page', () => {
             await pages.productsPage.verifyImageUrlAndAltText(product);
         }
     });
-});
+
+    test('Verify that user can add/remove product using specific product details page @TC-29', async ({ pages, productsData }) => {
+        const product = productsData.data[randomInt(0, productsData.data.length)];
+        await pages.productsPage.clickOnProduct(product.name);
+        await pages.productDetailsPage.verifyProductDetailsAreCorrect(product);
+        await pages.overlay.clickOnCartIcon();
+        await pages.overlay.verifyCartIconCounter(1);
+        await pages.productDetailsPage.clickBackToProductsButton();
+        await pages.overlay.verifyCartIconCounter(1);
+        await pages.productsPage.clickOnProduct(product.name);
+        await pages.productDetailsPage.removeProductFromCart();
+        await pages.overlay.verifyCartIconCounter(0);
+        await pages.productsPage.verifyUserIsOnProductsPage();
+    });
+})
