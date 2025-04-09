@@ -9,12 +9,11 @@ export class ProductDetailsPage {
     }
 
     private selectors = {
-        productName: () => this.page.getByTestId('product-name'),
-        productDescription: () => this.page.getByTestId('product-description'),
-        productPrice: () => this.page.getByTestId('product-price'),
+        productName: () => this.page.getByTestId('inventory-item-name'),
+        productDescription: () => this.page.getByTestId('inventory-item-desc'),
+        productPrice: () => this.page.getByTestId('inventory-item-price'),
         addToCartButton: () => this.page.getByTestId('add-to-cart'),
-        removeFromCartButton: () => this.page.getByTestId('remove-from-cart'),
-        backToProductsButton: () => this.page.getByTestId('back-to-products'),
+        removeFromCartButton: () => this.page.getByTestId('remove'),
     };
 
     // Methods
@@ -35,6 +34,6 @@ export class ProductDetailsPage {
     }
 
     async clickBackToProductsButton() {
-        await this.selectors.backToProductsButton().click();
+        await this.page.getByTestId('back-to-products').click();
     }
 }

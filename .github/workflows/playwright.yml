@@ -32,6 +32,7 @@ jobs:
         ERROR_USER_PASSWORD: ${{ secrets.ERROR_USER_PASSWORD }}
         VISUAL_USER_USERNAME: ${{ secrets.VISUAL_USER_USERNAME }}
         VISUAL_USER_PASSWORD: ${{ secrets.VISUAL_USER_PASSWORD }}
+        NODE_ENV: ${{ secrets.NODE_ENV }}
       run: |
         npx playwright test
     - name: Upload Allure Results

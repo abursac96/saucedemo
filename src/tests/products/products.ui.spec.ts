@@ -53,13 +53,14 @@ test.describe('Standard user is able to interact with product page', () => {
         const product = productsData.data[randomInt(0, productsData.data.length)];
         await pages.productsPage.clickOnProduct(product.name);
         await pages.productDetailsPage.verifyProductDetailsAreCorrect(product);
-        await pages.overlay.clickOnCartIcon();
+        await pages.productDetailsPage.addProductToCart();
         await pages.overlay.verifyCartIconCounter(1);
         await pages.productDetailsPage.clickBackToProductsButton();
         await pages.overlay.verifyCartIconCounter(1);
         await pages.productsPage.clickOnProduct(product.name);
         await pages.productDetailsPage.removeProductFromCart();
         await pages.overlay.verifyCartIconCounter(0);
+        await pages.productDetailsPage.clickBackToProductsButton();
         await pages.productsPage.verifyUserIsOnProductsPage();
     });
 })
