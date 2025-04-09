@@ -34,10 +34,13 @@ jobs:
         VISUAL_USER_PASSWORD: ${{ secrets.VISUAL_USER_PASSWORD }}
       run: |
         npx playwright test --reporter=line,allure-playwright
-    - name: Upload Allure Results
+    - name: Generate Allure Report
+      run: |
+        npx allure-playwright generate --results-dir=allure-results --report-dir=allure-report
+    - name: Upload Allure Report
       uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
-        name: allure-results
-        path: allure-results/
+        name: allure-report
+        path: allure-report/
         retention-days: 30
